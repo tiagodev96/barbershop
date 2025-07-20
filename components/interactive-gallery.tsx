@@ -252,7 +252,7 @@ export function InteractiveGallery() {
           </div>
 
           <p className="text-zinc-300 mb-6">
-            Gostou do que viu? Visite-nos na {siteConfig.contact.address}!
+            Gostou do que viu? Visite-nos em {siteConfig.contact.address}!
           </p>
 
           <Button

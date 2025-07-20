@@ -14,7 +14,7 @@ export function LocationMap() {
           </div>
 
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Visite-nos na{" "}
+            Visite-nos em{" "}
             <span className="text-orange-500">{siteConfig.contact.city}</span>
           </h2>
           <p className="text-zinc-300 leading-relaxed">
