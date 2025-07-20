@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 import { Button } from "./ui/button"
 import { Scissors, RadarIcon as Razor, Sparkles, Crown, Star } from "lucide-react"
+import { siteConfig } from "../config/site"
 
 export function ModernServices() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -32,44 +33,21 @@ export function ModernServices() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const services = [
-    {
-      icon: Scissors,
-      title: "Corte Degradê/Normal",
-      description: "Cortes modernos e clássicos, adaptados ao seu estilo e formato do rosto.",
-      price: "13€",
-      duration: "30 min",
-      gradient: "from-orange-500 to-orange-600",
-      popular: false,
-    },
-    {
-      icon: Razor,
-      title: "Barba Completa",
-      description: "Aparar, modelar e finalizar barba com técnicas tradicionais.",
-      price: "8€",
-      duration: "20 min",
-      gradient: "from-zinc-600 to-zinc-800",
-      popular: false,
-    },
-    {
-      icon: Sparkles,
-      title: "Corte + Barba",
-      description: "Pacote completo com corte de cabelo e cuidados com a barba.",
-      price: "20€",
-      duration: "45 min",
-      gradient: "from-orange-600 to-red-600",
-      popular: true,
-    },
-    {
-      icon: Crown,
-      title: "COMBO Premium",
-      description: "Corte + Hidratação + Limpeza de Pele + Depilação nariz/orelha.",
-      price: "33€",
-      duration: "90 min",
-      gradient: "from-zinc-700 to-black",
-      popular: false,
-    },
-  ]
+  // Mapear serviços do siteConfig para o formato do modern-services
+  const services = siteConfig.services.map((service, index) => ({
+    icon: [Scissors, Razor, Sparkles, Crown][index % 4],
+    title: service.name,
+    description: service.description,
+    price: service.price,
+    duration: service.duration,
+    gradient: [
+      "from-orange-500 to-orange-600",
+      "from-zinc-600 to-zinc-800", 
+      "from-orange-600 to-red-600",
+      "from-zinc-700 to-black"
+    ][index % 4],
+    popular: index === 2, // Terceiro serviço como popular
+  }))
 
   return (
     <section ref={sectionRef} id="servicos" className="relative py-32 overflow-hidden">
@@ -162,61 +140,26 @@ export function ModernServices() {
           ))}
         </div>
 
-        <div className="mt-16 mb-16">
-          <h3 className="text-3xl font-bold text-white text-center mb-12">Serviços Adicionais</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 rounded-xl p-6 text-center">
-              <h4 className="text-white font-semibold mb-2">Corte na Tesoura</h4>
-              <p className="text-orange-500 text-xl font-bold">13€</p>
-            </div>
-            <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 rounded-xl p-6 text-center">
-              <h4 className="text-white font-semibold mb-2">Raspar na Máquina</h4>
-              <p className="text-orange-500 text-xl font-bold">10€</p>
-            </div>
-            <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 rounded-xl p-6 text-center">
-              <h4 className="text-white font-semibold mb-2">Hidratação</h4>
-              <p className="text-orange-500 text-xl font-bold">6€</p>
-            </div>
-            <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 rounded-xl p-6 text-center">
-              <h4 className="text-white font-semibold mb-2">Limpeza de Pele</h4>
-              <p className="text-orange-500 text-xl font-bold">7€</p>
-            </div>
-            <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 rounded-xl p-6 text-center">
-              <h4 className="text-white font-semibold mb-2">Depilação Nariz/Orelha</h4>
-              <p className="text-orange-500 text-xl font-bold">7€</p>
-            </div>
-            <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800/50 rounded-xl p-6 text-center">
-              <h4 className="text-white font-semibold mb-2">Sobrancelhas a Cera</h4>
-              <p className="text-orange-500 text-xl font-bold">6€</p>
-            </div>
-          </div>
-        </div>
-
         <div className="text-center space-y-6">
           <div className="inline-flex items-center gap-4 bg-zinc-900/50 backdrop-blur-sm border border-zinc-700/50 rounded-2xl p-6">
             <div className="flex -space-x-2">
               {[1, 2, 3, 4, 5].map((i) => (
                 <div
                   key={i}
-                  className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 border-2 border-zinc-900 flex items-center justify-center"
+                  className="w-8 h-8 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 border-2 border-zinc-900 flex items-center justify-center text-white text-xs font-bold"
                 >
-                  <span className="text-white font-bold text-sm">{i}</span>
+                  {i}
                 </div>
               ))}
             </div>
             <div className="text-left">
-              <div className="text-white font-semibold">500+ Clientes Satisfeitos</div>
-              <div className="text-zinc-400 text-sm">Avaliação média de 5.0 estrelas</div>
+              <p className="text-white font-semibold">Mais de 1000 clientes satisfeitos</p>
+              <p className="text-zinc-400 text-sm">Avaliação média de 4.9/5</p>
             </div>
           </div>
 
-          <p className="text-zinc-300 mb-6">Não encontrou o que procura? Entre em contato conosco!</p>
-
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold transform hover:scale-105 transition-all duration-300 shadow-2xl shadow-orange-500/25"
-          >
-            Falar com Especialista
+          <Button size="lg" className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold px-8 py-4 text-lg transform hover:scale-105 transition-all duration-300">
+            Agendar Agora
           </Button>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 import { Button } from "./ui/button"
 import { Card, CardContent } from "./ui/card"
 import { Calendar, Clock, Star, Zap, CheckCircle, ArrowRight, Globe } from "lucide-react"
+import { siteConfig } from "../config/site";
 
 export function AppCTA() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -144,7 +145,7 @@ export function AppCTA() {
                 className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold text-lg px-8 py-4 shadow-2xl shadow-orange-500/25 transform hover:scale-105 transition-all duration-300 group"
                 asChild
               >
-                <a href="https://sites.appbarber.com.br/brabbobarbearia" target="_blank" rel="noopener noreferrer">
+                <a href={siteConfig.links.appBarber} target="_blank" rel="noopener noreferrer">
                   <Calendar className="w-5 h-5 mr-2 group-hover:animate-bounce" />
                   Agendar Online Agora
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -187,7 +188,7 @@ export function AppCTA() {
                       <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl mx-auto mb-4 flex items-center justify-center">
                         <span className="text-white font-black text-xl">B</span>
                       </div>
-                      <h3 className="text-white font-bold text-lg">Brabbo Barbearia</h3>
+                      <h3 className="text-white font-bold text-lg">{siteConfig.name}</h3>
                       <p className="text-zinc-400 text-sm">Agendamento Online</p>
                     </div>
 

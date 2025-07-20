@@ -1,5 +1,6 @@
-import { Button } from "./ui/button"
-import { Star, Clock, MapPin } from "lucide-react"
+import { Button } from "./ui/button";
+import { Star, Clock, MapPin } from "lucide-react";
+import { siteConfig } from "../config/site";
 
 export function Hero() {
   return (
@@ -11,8 +12,8 @@ export function Hero() {
               <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight">
                 Estilo e<span className="text-yellow-500"> Tradição</span>
               </h1>
-              <p className="text-xl text-zinc-300 leading-relaxed">
-                Na Brabbo Barbearia, cada corte é uma obra de arte. Tradição, qualidade e estilo em cada detalhe.
+              <p className="text-xl text-zinc-300 mb-8 max-w-2xl">
+                {siteConfig.description}
               </p>
             </div>
 
@@ -52,7 +53,7 @@ export function Hero() {
             <div className="aspect-square rounded-2xl overflow-hidden bg-zinc-800">
               <img
                 src="/placeholder.svg?height=600&width=600"
-                alt="Interior da Brabbo Barbearia"
+                alt={`Interior da ${siteConfig.name}`}
                 className="w-full h-full object-cover"
               />
             </div>

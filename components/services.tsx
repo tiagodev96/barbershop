@@ -1,39 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 import { Button } from "./ui/button"
 import { Scissors, RadarIcon as Razor, Sparkles, Crown } from "lucide-react"
+import { siteConfig } from "../config/site"
 
 export function Services() {
-  const services = [
-    {
-      icon: Scissors,
-      title: "Corte Masculino",
-      description: "Cortes modernos e clássicos, adaptados ao seu estilo e formato do rosto.",
-      price: "R$ 35",
-      duration: "45 min",
-    },
-    {
-      icon: Razor,
-      title: "Barba & Bigode",
-      description: "Aparar, modelar e finalizar barba e bigode com técnicas tradicionais.",
-      price: "R$ 25",
-      duration: "30 min",
-    },
-    {
-      icon: Sparkles,
-      title: "Corte + Barba",
-      description: "Pacote completo com corte de cabelo e cuidados com a barba.",
-      price: "R$ 55",
-      duration: "60 min",
-    },
-    {
-      icon: Crown,
-      title: "Tratamento Premium",
-      description: "Experiência completa com lavagem, corte, barba, hidratação e finalização.",
-      price: "R$ 85",
-      duration: "90 min",
-    },
-  ]
-
   return (
     <section id="servicos" className="py-20 bg-zinc-950">
       <div className="container mx-auto px-4">
@@ -47,14 +17,14 @@ export function Services() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
+          {siteConfig.services.map((service, index) => (
             <Card
               key={index}
               className="bg-zinc-900 border-zinc-800 hover:border-yellow-500/50 transition-all duration-300 group"
             >
               <CardHeader className="text-center pb-4">
-                <service.icon className="h-12 w-12 text-yellow-500 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <CardTitle className="text-white text-xl">{service.title}</CardTitle>
+                <Scissors className="h-12 w-12 text-yellow-500 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <CardTitle className="text-white text-xl">{service.name}</CardTitle>
               </CardHeader>
               <CardContent className="text-center space-y-4">
                 <p className="text-zinc-300 text-sm leading-relaxed">{service.description}</p>

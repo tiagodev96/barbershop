@@ -1,14 +1,15 @@
 import { Card, CardContent } from "./ui/card"
 import { Button } from "./ui/button"
 import { MapPin, Phone, Clock, Instagram, Facebook, PhoneIcon as WhatsApp } from "lucide-react"
+import { siteConfig } from "../config/site";
 
 export function Contact() {
   const contactInfo = [
     {
       icon: MapPin,
       title: "Endereço",
-      info: "Rua da Nataria, 22",
-      subInfo: "42503-24 Carvalhido - Porto/PO",
+      info: siteConfig.contact.address,
+      subInfo: `${siteConfig.contact.city} - ${siteConfig.contact.country}`,
     },
     {
       icon: Phone,
@@ -35,7 +36,7 @@ export function Contact() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Visite-nos no <span className="text-orange-500">Porto</span>
+            Visite-nos na <span className="text-orange-500">{siteConfig.contact.city}</span>
           </h2>
           <p className="text-xl text-zinc-300 max-w-2xl mx-auto">
             Estamos prontos para atendê-lo. Entre em contato conosco ou use nosso app para agendar.

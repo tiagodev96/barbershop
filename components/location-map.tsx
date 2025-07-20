@@ -1,6 +1,7 @@
 import { Card, CardContent } from "./ui/card";
 import { MapPin, Clock, Phone, Navigation } from "lucide-react";
 import { Button } from "./ui/button";
+import { siteConfig } from "../config/site";
 
 export function LocationMap() {
   return (
@@ -13,11 +14,12 @@ export function LocationMap() {
           </div>
 
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Visite-nos no <span className="text-orange-500">Porto</span>
+            Visite-nos na{" "}
+            <span className="text-orange-500">{siteConfig.contact.city}</span>
           </h2>
-          <p className="text-xl text-zinc-300 max-w-2xl mx-auto">
-            Estamos localizados no coração do Carvalhido, Porto. Fácil acesso e
-            estacionamento disponível.
+          <p className="text-zinc-300 leading-relaxed">
+            Estamos localizados no coração da cidade. Fácil acesso e
+            estacionamento disponível para sua comodidade.
           </p>
         </div>
 
@@ -32,7 +34,7 @@ export function LocationMap() {
                 </div>
               </div>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3003.508706856535!2d-8.627480624422585!3d41.167070509632765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2465c3b9ecc791%3A0x34544383453d28b9!2sBrabbo%20Barbearia%20%7C%20Porto!5e0!3m2!1spt-PT!2spt!4v1752924738182!5m2!1spt-PT!2spt"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96119.29125363748!2d-8.704354962017726!3d41.16228942961025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2465abc4e153c1%3A0xa648d95640b114bc!2sPorto!5e0!3m2!1spt-PT!2spt!4v1753033872565!5m2!1spt-PT!2spt"
                 width="600"
                 height="450"
                 style={{ border: 0 }}
@@ -53,9 +55,12 @@ export function LocationMap() {
                     <h3 className="text-white font-semibold mb-2">
                       Endereço Completo
                     </h3>
-                    <p className="text-zinc-300">Rua da Nataria, 22</p>
-                    <p className="text-zinc-300">42503-24 Carvalhido</p>
-                    <p className="text-zinc-300">Porto, Portugal</p>
+                    <p className="text-zinc-300">
+                      {siteConfig.contact.address}
+                    </p>
+                    <p className="text-zinc-300">
+                      {siteConfig.contact.city}, {siteConfig.contact.country}
+                    </p>
                   </div>
                 </div>
               </CardContent>

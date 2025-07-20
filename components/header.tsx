@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Button } from "./ui/button"
 import { Menu, X, Scissors } from "lucide-react"
+import { siteConfig } from "../config/site";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -13,7 +14,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Scissors className="h-8 w-8 text-orange-500" />
-            <span className="text-2xl font-bold text-white">Brabbo Barbearia</span>
+            <span className="text-2xl font-bold text-white">{siteConfig.name}</span>
           </div>
 
           <nav className="hidden md:flex items-center space-x-8">

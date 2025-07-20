@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import { Card, CardContent } from "./ui/card"
 import { Award, Users, Scissors, Heart, Sparkles } from "lucide-react"
+import { siteConfig } from "../config/site";
 
 export function ParallaxAbout() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -84,13 +85,12 @@ export function ParallaxAbout() {
           <h2 className="text-5xl lg:text-7xl font-black text-white mb-8">
             Sobre a{" "}
             <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
-              Brabbo Barbearia
+              {siteConfig.name}
             </span>
           </h2>
 
           <p className="text-xl text-zinc-300 max-w-4xl mx-auto leading-relaxed">
-            Há mais de 15 anos transformando o visual masculino com excelência. Nossa missão é proporcionar uma
-            experiência única, combinando tradição, qualidade e inovação em cada atendimento.
+            {siteConfig.about.story}
           </p>
         </div>
 
@@ -159,7 +159,7 @@ export function ParallaxAbout() {
             <div className="aspect-video rounded-3xl overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900 shadow-2xl shadow-black/50 transform hover:scale-105 transition-transform duration-700">
               <img
                 src="/images/brabbo-about.png"
-                alt="Barbeiro trabalhando"
+                alt={`${siteConfig.name}`}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />

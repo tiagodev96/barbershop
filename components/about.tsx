@@ -1,5 +1,6 @@
 import { Card, CardContent } from "./ui/card"
 import { Award, Users, Scissors, Heart } from "lucide-react"
+import { siteConfig } from "../config/site";
 
 export function About() {
   const features = [
@@ -30,7 +31,7 @@ export function About() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Sobre a <span className="text-yellow-500">Brabbo Barbearia</span>
+            Sobre a <span className="text-yellow-500">{siteConfig.name}</span>
           </h2>
           <p className="text-xl text-zinc-300 max-w-3xl mx-auto leading-relaxed">
             Há mais de 15 anos transformando o visual masculino com excelência. Nossa missão é proporcionar uma
@@ -54,19 +55,16 @@ export function About() {
           <div className="space-y-6">
             <h3 className="text-3xl font-bold text-white">Nossa História</h3>
             <p className="text-zinc-300 leading-relaxed">
-              A Brabbo Barbearia nasceu da paixão pela arte de cortar cabelo e fazer a barba. Começamos como um pequeno
-              estabelecimento no coração da cidade e, ao longo dos anos, nos tornamos referência em qualidade e
-              atendimento.
+              {siteConfig.about.story}
             </p>
             <p className="text-zinc-300 leading-relaxed">
-              Nosso compromisso é com a excelência em cada detalhe, desde a recepção calorosa até o acabamento perfeito.
-              Aqui, cada cliente sai não apenas com um novo visual, mas com a autoestima renovada.
+              Nossa missão é {siteConfig.about.mission}
             </p>
           </div>
           <div className="aspect-video rounded-xl overflow-hidden bg-zinc-800">
             <img
               src="/images/brabbo-about.png"
-              alt="Barbeiro trabalhando"
+              alt={`${siteConfig.name}`}
               className="w-full h-full object-cover"
             />
           </div>

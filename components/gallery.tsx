@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { siteConfig } from "../config/site"
 
 export function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)

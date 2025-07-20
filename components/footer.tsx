@@ -1,4 +1,5 @@
-import { Scissors } from "lucide-react"
+import { Scissors, MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
+import { siteConfig } from "../config/site";
 
 export function Footer() {
   return (
@@ -8,12 +9,12 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <Scissors className="h-8 w-8 text-orange-500" />
-              <span className="text-2xl font-bold text-white">Brabbo Barbearia</span>
+              <span className="text-2xl font-bold text-white">{siteConfig.name}</span>
             </div>
             <p className="text-zinc-300">
               Tradição, qualidade e estilo em cada corte. Há mais de 15 anos cuidando do seu visual com excelência.
             </p>
-            <p className="text-zinc-400 text-sm mt-2">📍 Rua da Nataria, 22 - Carvalhido, Porto</p>
+            <p className="text-zinc-400 text-sm mt-2">📍 {siteConfig.contact.address} - {siteConfig.contact.city}</p>
           </div>
 
           <div>
@@ -58,7 +59,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-zinc-800 pt-8 text-center">
-          <p className="text-zinc-400">© 2024 Brabbo Barbearia. Todos os direitos reservados.</p>
+          <p className="text-zinc-400">© 2024 {siteConfig.name}. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

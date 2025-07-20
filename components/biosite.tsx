@@ -16,6 +16,7 @@ import {
   Sparkles,
 } from "lucide-react"
 import Image from "next/image"
+import { siteConfig } from "../config/site";
 
 export function BioSite() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -73,7 +74,7 @@ export function BioSite() {
       title: "Agendar Online",
       description: "AppBarber - Agendamento 24h",
       icon: Calendar,
-      href: "https://sites.appbarber.com.br/brabbobarbearia",
+      href: siteConfig.links.appBarber,
       color: "from-blue-500 to-blue-600",
       external: true,
     },
@@ -87,9 +88,9 @@ export function BioSite() {
     },
     {
       title: "Instagram",
-      description: "@brabbobarbearia",
+      description: `@${siteConfig.social.instagram}`,
       icon: Instagram,
-      href: "https://instagram.com/brabbobarbearia",
+      href: siteConfig.links.instagram,
       color: "from-pink-500 to-purple-600",
       external: true,
     },
@@ -142,7 +143,7 @@ export function BioSite() {
                     src="/images/brabbo-logo.jpg"
                     width={128}
                     height={128}
-                    alt="Brabbo Barbearia"
+                    alt={siteConfig.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -159,7 +160,7 @@ export function BioSite() {
               <div>
                 <h1 className="text-3xl font-black text-white mb-2">
                   <span className="bg-gradient-to-r from-white to-orange-500 bg-clip-text text-transparent">
-                    BRABBO BARBEARIA
+                    {siteConfig.name.toUpperCase()}
                   </span>
                 </h1>
                 <p className="text-orange-500 font-semibold text-lg">PT</p>
@@ -167,7 +168,7 @@ export function BioSite() {
 
               <p className="text-zinc-300 text-center leading-relaxed">
                 Tradição, qualidade e estilo em cada corte.
-                <br />📍 Rua da Nataria, 22 - Porto
+                <br />📍 {siteConfig.contact.address} - {siteConfig.contact.city}
               </p>
 
               {/* Quick Info */}
@@ -234,7 +235,7 @@ export function BioSite() {
                 className="border-zinc-700 text-zinc-400 hover:bg-orange-500 hover:text-white hover:border-orange-500 bg-transparent transform hover:scale-110 transition-all duration-300"
                 asChild
               >
-                <a href="https://instagram.com/brabbobarbearia" target="_blank" rel="noopener noreferrer">
+                <a href={siteConfig.links.instagram} target="_blank" rel="noopener noreferrer">
                   <Instagram className="h-5 w-5" />
                 </a>
               </Button>
@@ -254,11 +255,11 @@ export function BioSite() {
             {/* Location */}
             <div className="inline-flex items-center gap-2 bg-zinc-900/50 backdrop-blur-sm border border-zinc-700/50 rounded-full px-4 py-2 text-zinc-400 text-sm">
               <MapPin className="w-4 h-4 text-orange-500" />
-              <span>Carvalhido, Porto - Portugal</span>
+              <span>{siteConfig.contact.city}, {siteConfig.contact.country}</span>
             </div>
 
             {/* Copyright */}
-            <p className="text-zinc-500 text-xs">© 2024 Brabbo Barbearia. Todos os direitos reservados.</p>
+            <p className="text-zinc-500 text-xs">© 2024 {siteConfig.name}. Todos os direitos reservados.</p>
           </div>
         </div>
       </div>

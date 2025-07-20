@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { X, ZoomIn, Heart, Share2 } from "lucide-react";
 import { Button } from "./ui/button";
+import { siteConfig } from "../config/site";
 
 export function InteractiveGallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -40,7 +41,7 @@ export function InteractiveGallery() {
   const images = [
     {
       src: "/images/cortes/1.jpg",
-      alt: "Corte degradê moderno estilo Brabbo",
+      alt: "Corte degradê moderno",
       category: "Cortes",
     },
     {
@@ -75,7 +76,7 @@ export function InteractiveGallery() {
     },
     {
       src: "/images/cortes/8.jpg",
-      alt: "Interior da Brabbo Barbearia Porto",
+      alt: `Interior da ${siteConfig.name}`,
       category: "Ambiente",
     },
   ];
@@ -118,8 +119,8 @@ export function InteractiveGallery() {
           </h2>
 
           <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
-            Confira alguns dos nossos trabalhos realizados na Brabbo Barbearia
-            no Porto e inspire-se para seu próximo visual.
+            Confira alguns dos nossos trabalhos realizados na nossa barbearia
+            na nossa cidade e inspire-se para seu próximo visual.
           </p>
         </div>
 
@@ -245,13 +246,13 @@ export function InteractiveGallery() {
                 {likedImages.size !== 1 ? "s" : ""}
               </div>
               <div className="text-zinc-400 text-sm">
-                Inspire-se para seu próximo visual no Porto
+                Inspire-se para seu próximo visual na {siteConfig.contact.city}
               </div>
             </div>
           </div>
 
           <p className="text-zinc-300 mb-6">
-            Gostou do que viu? Visite-nos na Rua da Nataria, 22 no Porto!
+            Gostou do que viu? Visite-nos na {siteConfig.contact.address}!
           </p>
 
           <Button

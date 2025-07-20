@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 import Image from "next/image"
 import { Button } from "./ui/button"
 import { Star, Clock, MapPin, Sparkles } from "lucide-react"
+import { siteConfig } from "../config/site";
 
 export function ParallaxHero() {
   const heroRef = useRef<HTMLElement>(null)
@@ -74,8 +75,8 @@ export function ParallaxHero() {
                 <span className="block text-orange-500 animate-pulse">& TRADIÇÃO</span>
               </h1>
 
-              <p className="text-xl text-zinc-300 leading-relaxed max-w-lg">
-                Na Brabbo Barbearia, cada corte é uma obra de arte. Localizada no coração do Porto, oferecemos tradição,
+              <p className="text-xl text-zinc-300 mb-8 max-w-2xl">
+                Na nossa barbearia, cada corte é uma obra de arte. Localizada no coração da cidade, oferecemos tradição,
                 qualidade e estilo em cada detalhe.
               </p>
             </div>
@@ -91,7 +92,7 @@ export function ParallaxHero() {
               </div>
               <div className="flex items-center gap-2 text-zinc-300 bg-zinc-900/50 backdrop-blur-sm rounded-full px-4 py-2 border border-zinc-700/50">
                 <MapPin className="h-5 w-5 text-orange-500" />
-                <span>Carvalhido - Porto</span>
+                <span>{siteConfig.contact.city}</span>
               </div>
             </div>
 
@@ -116,7 +117,7 @@ export function ParallaxHero() {
             <div className="relative aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900 shadow-2xl shadow-black/50">
               <Image
                 src="/images/brabbo-hero.png"
-                alt="Interior da Brabbo Barbearia"
+                alt={`Interior da ${siteConfig.name}`}
                 width={600}
                 height={600}
                 className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
