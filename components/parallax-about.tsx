@@ -1,62 +1,73 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { Card, CardContent } from "./ui/card"
-import { Award, Users, Scissors, Heart, Sparkles } from "lucide-react"
+import { useEffect, useRef } from "react";
+import { Card, CardContent } from "./ui/card";
+import { Award, Users, Scissors, Heart, Sparkles } from "lucide-react";
 import { siteConfig } from "../config/site";
 
 export function ParallaxAbout() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const backgroundRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLElement>(null);
+  const backgroundRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!sectionRef.current || !backgroundRef.current) return
+      if (!sectionRef.current || !backgroundRef.current) return;
 
-      const rect = sectionRef.current.getBoundingClientRect()
-      const scrolled = (window.innerHeight - rect.top) / window.innerHeight
+      const rect = sectionRef.current.getBoundingClientRect();
+      const scrolled = (window.innerHeight - rect.top) / window.innerHeight;
 
       if (scrolled > 0 && scrolled < 1) {
-        const rate = scrolled * 50
-        backgroundRef.current.style.transform = `translateY(${rate}px)`
+        const rate = scrolled * 50;
+        backgroundRef.current.style.transform = `translateY(${rate}px)`;
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const features = [
     {
       icon: Award,
       title: "Qualidade Premium",
-      description: "Produtos e equipamentos de primeira linha para garantir o melhor resultado.",
+      description:
+        "Produtos e equipamentos de primeira linha para garantir o melhor resultado.",
       gradient: "from-orange-500 to-red-500",
     },
     {
       icon: Users,
       title: "Profissionais Experientes",
-      description: "Barbeiros especializados com anos de experiência e paixão pelo que fazem.",
+      description:
+        "Barbeiros especializados com anos de experiência e paixão pelo que fazem.",
       gradient: "from-zinc-600 to-zinc-800",
     },
     {
       icon: Scissors,
       title: "Técnicas Modernas",
-      description: "Combinamos tradição com as mais modernas técnicas de corte e barbearia.",
+      description:
+        "Combinamos tradição com as mais modernas técnicas de corte e barbearia.",
       gradient: "from-zinc-700 to-black",
     },
     {
       icon: Heart,
       title: "Atendimento Personalizado",
-      description: "Cada cliente é único e merece um atendimento especial e personalizado.",
+      description:
+        "Cada cliente é único e merece um atendimento especial e personalizado.",
       gradient: "from-orange-600 to-orange-800",
     },
-  ]
+  ];
 
   return (
-    <section ref={sectionRef} id="sobre" className="relative py-32 overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="sobre"
+      className="relative py-32 overflow-hidden"
+    >
       {/* Parallax Background */}
-      <div ref={backgroundRef} className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
+      <div
+        ref={backgroundRef}
+        className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900"
+      >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,191,36,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.05),transparent_50%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_25%,rgba(251,191,36,0.02)_50%,transparent_75%)] bg-[length:100px_100px]" />
@@ -116,7 +127,9 @@ export function ParallaxAbout() {
                   {feature.title}
                 </h3>
 
-                <p className="text-zinc-300 leading-relaxed">{feature.description}</p>
+                <p className="text-zinc-300 leading-relaxed">
+                  {feature.description}
+                </p>
               </CardContent>
             </Card>
           ))}
@@ -128,28 +141,39 @@ export function ParallaxAbout() {
 
             <div className="space-y-6">
               <p className="text-zinc-300 leading-relaxed text-lg">
-                A Brabbo Barbearia nasceu da paixão pela arte de cortar cabelo e fazer a barba. Começamos como um
-                pequeno estabelecimento no coração da cidade e, ao longo dos anos, nos tornamos referência em qualidade
-                e atendimento.
+                A Brabbo Barbearia nasceu da paixão pela arte de cortar cabelo e
+                fazer a barba. Começamos como um pequeno estabelecimento no
+                coração da cidade e, ao longo dos anos, nos tornamos referência
+                em qualidade e atendimento.
               </p>
 
               <p className="text-zinc-300 leading-relaxed text-lg">
-                Nosso compromisso é com a excelência em cada detalhe, desde a recepção calorosa até o acabamento
-                perfeito. Aqui, cada cliente sai não apenas com um novo visual, mas com a autoestima renovada.
+                Nosso compromisso é com a excelência em cada detalhe, desde a
+                recepção calorosa até o acabamento perfeito. Aqui, cada cliente
+                sai não apenas com um novo visual, mas com a autoestima
+                renovada.
               </p>
             </div>
 
             <div className="flex gap-8">
               <div className="text-center">
-                <div className="text-4xl font-black text-orange-500 mb-2">500+</div>
-                <div className="text-zinc-400 text-sm">Clientes Satisfeitos</div>
+                <div className="text-4xl font-black text-orange-500 mb-2">
+                  500+
+                </div>
+                <div className="text-zinc-400 text-sm">
+                  Clientes Satisfeitos
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-black text-orange-500 mb-2">15+</div>
+                <div className="text-4xl font-black text-orange-500 mb-2">
+                  15+
+                </div>
                 <div className="text-zinc-400 text-sm">Anos de Experiência</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-black text-orange-500 mb-2">5.0</div>
+                <div className="text-4xl font-black text-orange-500 mb-2">
+                  5.0
+                </div>
                 <div className="text-zinc-400 text-sm">Avaliação Google</div>
               </div>
             </div>
@@ -158,7 +182,7 @@ export function ParallaxAbout() {
           <div className="relative animate-fade-in-right">
             <div className="aspect-video rounded-3xl overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900 shadow-2xl shadow-black/50 transform hover:scale-105 transition-transform duration-700">
               <img
-                src="/images/brabbo-about.png"
+                src="/images/barbershop-about.png"
                 alt={`${siteConfig.name}`}
                 className="w-full h-full object-cover"
               />
@@ -173,5 +197,5 @@ export function ParallaxAbout() {
         </div>
       </div>
     </section>
-  )
+  );
 }

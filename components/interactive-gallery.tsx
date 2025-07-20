@@ -119,8 +119,8 @@ export function InteractiveGallery() {
           </h2>
 
           <p className="text-xl text-zinc-300 max-w-3xl mx-auto">
-            Confira alguns dos nossos trabalhos realizados na nossa barbearia
-            na nossa cidade e inspire-se para seu próximo visual.
+            Confira alguns dos nossos trabalhos realizados na nossa barbearia na
+            nossa cidade e inspire-se para seu próximo visual.
           </p>
         </div>
 

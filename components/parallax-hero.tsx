@@ -1,34 +1,43 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import Image from "next/image"
-import { Button } from "./ui/button"
-import { Star, Clock, MapPin, Sparkles } from "lucide-react"
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { Button } from "./ui/button";
+import { Star, Clock, MapPin, Sparkles } from "lucide-react";
 import { siteConfig } from "../config/site";
 
 export function ParallaxHero() {
-  const heroRef = useRef<HTMLElement>(null)
-  const backgroundRef = useRef<HTMLDivElement>(null)
-  const floatingElementsRef = useRef<HTMLDivElement>(null)
+  const heroRef = useRef<HTMLElement>(null);
+  const backgroundRef = useRef<HTMLDivElement>(null);
+  const floatingElementsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!heroRef.current || !backgroundRef.current || !floatingElementsRef.current) return
+      if (
+        !heroRef.current ||
+        !backgroundRef.current ||
+        !floatingElementsRef.current
+      )
+        return;
 
-      const scrolled = window.pageYOffset
-      const rate = scrolled * -0.5
-      const floatRate = scrolled * -0.3
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * -0.5;
+      const floatRate = scrolled * -0.3;
 
-      backgroundRef.current.style.transform = `translate3d(0, ${rate}px, 0)`
-      floatingElementsRef.current.style.transform = `translate3d(0, ${floatRate}px, 0)`
-    }
+      backgroundRef.current.style.transform = `translate3d(0, ${rate}px, 0)`;
+      floatingElementsRef.current.style.transform = `translate3d(0, ${floatRate}px, 0)`;
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <section ref={heroRef} id="inicio" className="relative min-h-screen overflow-hidden">
+    <section
+      ref={heroRef}
+      id="inicio"
+      className="relative min-h-screen overflow-hidden"
+    >
       {/* Animated Background */}
       <div
         ref={backgroundRef}
@@ -39,7 +48,10 @@ export function ParallaxHero() {
       </div>
 
       {/* Floating Elements */}
-      <div ref={floatingElementsRef} className="absolute inset-0 pointer-events-none">
+      <div
+        ref={floatingElementsRef}
+        className="absolute inset-0 pointer-events-none"
+      >
         <div
           className="absolute top-20 left-10 w-2 h-2 bg-orange-500 rounded-full animate-bounce"
           style={{ animationDelay: "0s" }}
@@ -72,12 +84,15 @@ export function ParallaxHero() {
                 <span className="block bg-gradient-to-r from-white via-orange-200 to-orange-500 bg-clip-text text-transparent">
                   ESTILO
                 </span>
-                <span className="block text-orange-500 animate-pulse">& TRADIÇÃO</span>
+                <span className="block text-orange-500 animate-pulse">
+                  & TRADIÇÃO
+                </span>
               </h1>
 
               <p className="text-xl text-zinc-300 mb-8 max-w-2xl">
-                Na nossa barbearia, cada corte é uma obra de arte. Localizada no coração da cidade, oferecemos tradição,
-                qualidade e estilo em cada detalhe.
+                Na nossa barbearia, cada corte é uma obra de arte. Localizada no
+                coração da cidade, oferecemos tradição, qualidade e estilo em
+                cada detalhe.
               </p>
             </div>
 
@@ -116,7 +131,7 @@ export function ParallaxHero() {
           <div className="relative animate-fade-in-right">
             <div className="relative aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900 shadow-2xl shadow-black/50">
               <Image
-                src="/images/brabbo-hero.png"
+                src="/images/barbershop-hero.png"
                 alt={`Interior da ${siteConfig.name}`}
                 width={600}
                 height={600}
@@ -128,7 +143,9 @@ export function ParallaxHero() {
             {/* Floating Stats Card */}
             <div className="absolute -bottom-8 -left-8 bg-gradient-to-br from-orange-500 to-orange-600 text-white p-8 rounded-2xl shadow-2xl shadow-orange-500/25 transform hover:scale-105 transition-all duration-300 animate-float">
               <div className="text-4xl font-black">15+</div>
-              <div className="text-sm font-bold opacity-80">Anos de experiência</div>
+              <div className="text-sm font-bold opacity-80">
+                Anos de experiência
+              </div>
             </div>
 
             {/* Floating Badge */}
@@ -139,5 +156,5 @@ export function ParallaxHero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,6 +1,13 @@
-import { Card, CardContent } from "./ui/card"
-import { Button } from "./ui/button"
-import { MapPin, Phone, Clock, Instagram, Facebook, PhoneIcon as WhatsApp } from "lucide-react"
+import { Card, CardContent } from "./ui/card";
+import { Button } from "./ui/button";
+import {
+  MapPin,
+  Phone,
+  Clock,
+  Instagram,
+  Facebook,
+  PhoneIcon as WhatsApp,
+} from "lucide-react";
 import { siteConfig } from "../config/site";
 
 export function Contact() {
@@ -23,29 +30,34 @@ export function Contact() {
       info: "Segunda a Sexta: 9h às 20h",
       subInfo: "Sábado: 9h às 18h | Domingo: Fechado",
     },
-  ]
+  ];
 
   const socialLinks = [
     { icon: Instagram, name: "Instagram", href: "#" },
     { icon: Facebook, name: "Facebook", href: "#" },
     { icon: WhatsApp, name: "WhatsApp", href: "#" },
-  ]
+  ];
 
   return (
     <section id="contato" className="py-20 bg-zinc-950">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Visite-nos na <span className="text-orange-500">{siteConfig.contact.city}</span>
+            Visite-nos na{" "}
+            <span className="text-orange-500">{siteConfig.contact.city}</span>
           </h2>
           <p className="text-xl text-zinc-300 max-w-2xl mx-auto">
-            Estamos prontos para atendê-lo. Entre em contato conosco ou use nosso app para agendar.
+            Estamos prontos para atendê-lo. Entre em contato conosco ou use
+            nosso app para agendar.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {contactInfo.map((item, index) => (
-            <Card key={index} className="bg-zinc-900 border-zinc-800 text-center">
+            <Card
+              key={index}
+              className="bg-zinc-900 border-zinc-800 text-center"
+            >
               <CardContent className="p-6">
                 <item.icon className="h-12 w-12 text-orange-500 mx-auto mb-4" />
                 <h3 className="text-white font-semibold mb-2">{item.title}</h3>
@@ -57,7 +69,9 @@ export function Contact() {
         </div>
 
         <div className="text-center mt-12">
-          <h3 className="text-white text-xl font-semibold mb-6">Siga-nos nas redes sociais</h3>
+          <h3 className="text-white text-xl font-semibold mb-6">
+            Siga-nos nas redes sociais
+          </h3>
           <div className="flex justify-center gap-4">
             {socialLinks.map((social, index) => (
               <Button
@@ -76,5 +90,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }

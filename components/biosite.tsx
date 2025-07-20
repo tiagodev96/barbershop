@@ -140,7 +140,7 @@ export function BioSite() {
               <div className="w-32 h-32 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-orange-500 to-orange-600 p-1 shadow-2xl shadow-orange-500/25 animate-float">
                 <div className="w-full h-full rounded-full overflow-hidden bg-zinc-800">
                   <Image
-                    src="/images/brabbo-logo.jpg"
+                    src="/images/barbershop-logo.jpg"
                     width={128}
                     height={128}
                     alt={siteConfig.name}
