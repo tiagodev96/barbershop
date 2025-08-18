@@ -141,7 +141,7 @@ export function ParallaxAbout() {
 
             <div className="space-y-6">
               <p className="text-zinc-300 leading-relaxed text-lg">
-                A Brabbo Barbearia nasceu da paixão pela arte de cortar cabelo e
+                A Barbearia nasceu da paixão pela arte de cortar cabelo e
                 fazer a barba. Começamos como um pequeno estabelecimento no
                 coração da cidade e, ao longo dos anos, nos tornamos referência
                 em qualidade e atendimento.

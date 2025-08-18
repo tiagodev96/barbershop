@@ -26,10 +26,10 @@ export const siteConfig = {
   },
   
   links: {
-    appBarber: "https://sites.appbarber.com.br/suabarbearia",
-    instagram: "https://instagram.com/suabarbearia",
-    facebook: "https://facebook.com/suabarbearia",
-    whatsapp: "https://wa.me/351912345678",
+    appBarber: "https://sites.appbarber.com.br/",
+    instagram: "https://instagram.com/",
+    facebook: "https://facebook.com/",
+    whatsapp: "https://wa.me/",
   },
 }
 ```

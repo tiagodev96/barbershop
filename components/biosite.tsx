@@ -246,7 +246,7 @@ export function BioSite() {
                 className="border-zinc-700 text-zinc-400 hover:bg-green-500 hover:text-white hover:border-green-500 bg-transparent transform hover:scale-110 transition-all duration-300"
                 asChild
               >
-                <a href="https://wa.me/351912345678" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5" />
                 </a>
               </Button>

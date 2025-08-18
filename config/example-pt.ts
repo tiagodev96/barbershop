@@ -25,10 +25,10 @@ export const siteConfig = {
   
   // Links externos
   links: {
-    appBarber: "https://sites.appbarber.com.br/barbeariadojoao",
-    instagram: "https://instagram.com/barbeariadojoao",
-    facebook: "https://facebook.com/barbeariadojoao",
-    whatsapp: "https://wa.me/351912345678",
+    appBarber: "https://sites.appbarber.com.br/",
+    instagram: "https://instagram.com/",
+    facebook: "https://facebook.com/",
+    whatsapp: "https://wa.me/",
   },
   
   // Serviços oferecidos (preços em euros - mercado português)
